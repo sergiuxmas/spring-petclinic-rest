@@ -10,6 +10,8 @@ FROM openjdk:17-jdk-alpine as final
 WORKDIR /app
 COPY run.sh /app/
 COPY --from=build /app/pom.xml /app/artifactId.txt /app/version.txt /app/target/*.jar /app/
+RUN apk update && \
+    apk add curl
 
 #CMD ["java", "-jar", "/app/*.jar"]
 CMD ["/app/run.sh"]
