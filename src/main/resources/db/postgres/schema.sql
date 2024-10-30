@@ -95,8 +95,8 @@ CREATE TABLE IF NOT EXISTS roles (
   username varchar(20) NOT NULL,
   role varchar(20) NOT NULL,
   CONSTRAINT pk_roles PRIMARY KEY (id),
+  CONSTRAINT uni_username_role UNIQUE (role, username),
   FOREIGN KEY (username) REFERENCES users (username)
 );
 
-ALTER TABLE roles ADD CONSTRAINT uni_username_role UNIQUE (role,username);
 ALTER SEQUENCE roles_id_seq RESTART WITH 100;
