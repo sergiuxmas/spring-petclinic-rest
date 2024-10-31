@@ -14,4 +14,6 @@ RUN apk update && \
     apk add curl
 
 #CMD ["java", "-jar", "/app/*.jar"]
+# Set executable permission
+RUN chmod +x /app/run.sh
 CMD ["/app/run.sh"]
